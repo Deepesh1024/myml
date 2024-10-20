@@ -1,1 +1,84 @@
-<h1> Welcome to the home page</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Home</title>
+    <style>
+        /* Style for the body */
+        body {
+            background-color: #1c1c1c; /* Darker grey background */
+            color: #ffffff; /* White text */
+            font-family: 'Arial', sans-serif; /* Font styling */
+            display: flex; /* Flexbox for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            flex-direction: column; /* Stack elements vertically */
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+            text-align: center; /* Center text */
+        }
+
+        /* Style for the heading */
+        h1 {
+            font-size: 4rem; /* Large font size */
+            font-weight: bold; /* Bold text */
+            color: #8B0000; /* Dark red color (Firebrick) */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); /* Darker shadow for text */
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Style for a subtitle or additional message */
+        p {
+            font-size: 1.5rem; /* Medium font size */
+            margin-top: 20px; /* Space above paragraph */
+            color: #e0e0e0; /* Light grey for subtitle */
+        }
+
+        /* Style for the button */
+        .btn {
+            background-color: #007bff; /* Blue background color */
+            color: white; /* White text color */
+            border: none; /* No border */
+            padding: 15px 30px; /* Padding inside the button */
+            border-radius: 5px; /* Slightly rounded corners */
+            font-size: 1.2rem; /* Font size for button text */
+            cursor: pointer; /* Pointer on hover */
+            margin-top: 30px; /* Space above button */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Transition for button */
+        }
+
+        /* Hover effect for button */
+        .btn:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            transform: scale(1.05); /* Slightly enlarge button on hover */
+        }
+
+        /* Animate the heading */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        h1:hover {
+            animation: pulse 1s infinite; /* Pulsing effect on hover */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Welcome to the Score predictor</h1>
+        <p>Your gateway to the score predictor!</p>
+        <a href="predictdata">
+            <button class="btn">Go to predictor</button>
+        </a>
+    </div>
+</body>
+</html>
