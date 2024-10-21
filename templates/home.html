@@ -7,81 +7,105 @@
     <style>
         /* Style for the body */
         body {
-            background-color: #2c2c2c;  /* Dark grey background */
-            color: white;  /* White text for better contrast */
-            font-family: Arial, sans-serif;  /* Font styling */
-            display: flex;  /* Flexbox for centering */
-            justify-content: center;  /* Center horizontally */
-            align-items: center;  /* Center vertically */
-            height: 100vh;  /* Full viewport height */
-            margin: 0;  /* Remove default margin */
+            background: linear-gradient(135deg, #1f1c2c, #928DAB); /* Darker gradient background */
+            color: #fff;
+            font-family: 'Roboto', sans-serif; /* Modern, clean font */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
 
         /* Container for the form */
         .login {
-            background-color: #3a3a3a;  /* Slightly lighter grey for form background */
-            border-radius: 10px;  /* Rounded corners */
-            padding: 20px;  /* Padding inside the form */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);  /* Shadow effect */
-            width: 400px;  /* Increased width */
+            background-color: rgba(255, 255, 255, 0.1); /* Transparent glassmorphic look */
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Softer shadow */
+            width: 380px;
+            backdrop-filter: blur(10px); /* Blur background */
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         /* Style for headings */
         h1 {
-            text-align: center;  /* Center the heading */
-            margin-bottom: 20px;  /* Space below heading */
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            color: #f1f1f1;
+            font-weight: bold;
         }
 
-        /* Style for form labels */
+        /* Form label styling */
         .form-label {
-            margin-top: 10px;  /* Space above label */
-            display: block;  /* Make the label a block element */
-            border-radius: 5px;  /* Rounded corners */
-            background-color: #4a4a4a;  /* Background color for labels */
-            padding: 5px;  /* Padding inside labels */
-            font-weight: bold;  /* Bold text */
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: #ddd;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* Style for input fields and select elements */
+        /* Input fields and select elements */
         .form-control {
-            width: 100%;  /* Full width */
-            padding: 10px;  /* Padding inside the input */
-            border-radius: 5px;  /* Rounded corners */
-            border: 1px solid #ddd;  /* Border style */
-            background-color: #f2f2f2;  /* Light background for inputs */
-            margin-bottom: 15px;  /* Space below input */
-            transition: border-color 0.3s ease, background-color 0.3s ease;  /* Transition for input fields */
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: white;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
 
-        /* Focus effect for input fields and select elements */
+        /* Focus effect */
         .form-control:focus {
-            border-color: #007bff;  /* Change border color on focus */
-            background-color: #e8e8e8;  /* Slightly darker background on focus */
-            outline: none;  /* Remove default outline */
+            outline: none;
+            border: 2px solid #00aaff; /* Light blue border */
+            background-color: rgba(255, 255, 255, 0.5);
         }
 
-        /* Style for the submit button */
+        /* Submit button */
         .btn {
-            background-color: #007bff;  /* Button color */
-            color: white;  /* Text color */
-            border: none;  /* No border */
-            padding: 10px 15px;  /* Padding inside button */
-            border-radius: 25px;  /* Round button */
-            cursor: pointer;  /* Pointer on hover */
-            width: 100%;  /* Full width */
-            transition: background-color 0.3s ease, transform 0.3s ease;  /* Transition for button */
+            background-color: #00aaff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        /* Hover effect for button */
+        /* Button hover effect */
         .btn:hover {
-            background-color: #0056b3;  /* Darker blue on hover */
-            transform: scale(1.05);  /* Slightly enlarge button on hover */
+            background-color: #0088cc;
+            transform: translateY(-3px); /* Slight button movement */
         }
 
-        /* Style for error or result messages */
+        /* Error or result message styling */
         h2 {
-            text-align: center;  /* Center the result message */
-            margin-top: 20px;  /* Space above the result message */
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #f8cdda;
+        }
+
+        /* Responsive design */
+        @media (max-width: 480px) {
+            .login {
+                width: 95%;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .form-control, .btn {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
@@ -90,7 +114,6 @@
         <h1>Student Exam Performance Indicator</h1>
 
         <form action="{{ url_for('predict_datapoint') }}" method="post">
-            <legend></legend>
             <div class="mb-3">
                 <label class="form-label">Gender</label>
                 <select class="form-control" name="gender" required>
@@ -99,6 +122,7 @@
                     <option value="female">Female</option>
                 </select>
             </div>
+
             <div class="mb-3">
                 <label class="form-label">Race or Ethnicity</label>
                 <select class="form-control" name="ethnicity" required>
@@ -110,6 +134,7 @@
                     <option value="group E">Group E</option>
                 </select>
             </div>
+
             <div class="mb-3">
                 <label class="form-label">Parental Level of Education</label>
                 <select class="form-control" name="parental_level_of_education" required>
@@ -122,6 +147,7 @@
                     <option value="some high school">Some High School</option>
                 </select>
             </div>
+
             <div class="mb-3">
                 <label class="form-label">Lunch Type</label>
                 <select class="form-control" name="lunch" required>
@@ -130,6 +156,7 @@
                     <option value="standard">Standard</option>
                 </select>
             </div>
+
             <div class="mb-3">
                 <label class="form-label">Test Preparation Course</label>
                 <select class="form-control" name="test_preparation_course" required>
@@ -138,18 +165,22 @@
                     <option value="completed">Completed</option>
                 </select>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Writing Score out of 100</label>
-                <input class="form-control" type="number" name="reading_score" placeholder="Enter your Reading score" min='0' max='100' required />
-            </div>
+
             <div class="mb-3">
                 <label class="form-label">Reading Score out of 100</label>
+                <input class="form-control" type="number" name="reading_score" placeholder="Enter your Reading score" min='0' max='100' required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Writing Score out of 100</label>
                 <input class="form-control" type="number" name="writing_score" placeholder="Enter your Writing Score" min='0' max='100' required />
             </div>
+
             <div class="mb-3">
                 <input class="btn" type="submit" value="Predict your Maths Score" />
             </div>
         </form>
+
         <h2>
             THE prediction is {{ results }}
         </h2>
