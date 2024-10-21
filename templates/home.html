@@ -7,7 +7,10 @@
     <style>
         /* Style for the body */
         body {
-            background: linear-gradient(135deg, #1f1c2c, #928DAB); /* Darker gradient background */
+            background-image: url('https://imgs.search.brave.com/xlrwxsTY6G0dmsFWvBix8VSqTNhv3SW-MM8huu7Y65U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9nZXR3/YWxscGFwZXJzLmNv/bS93YWxscGFwZXIv/ZnVsbC81L2EvNy8x/NjU4OTUuanBn'); /* Image background */
+            background-size: cover; /* Cover the entire background */
+            background-position: center;
+            background-repeat: no-repeat;
             color: #fff;
             font-family: 'Roboto', sans-serif; /* Modern, clean font */
             display: flex;
@@ -15,6 +18,18 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+        }
+
+        /* Add a subtle overlay to ensure text is readable over the background */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% transparency */
+            z-index: 0;
         }
 
         /* Container for the form */
@@ -26,6 +41,8 @@
             width: 380px;
             backdrop-filter: blur(10px); /* Blur background */
             border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative; /* Make the card appear above the overlay */
+            z-index: 1; /* Ensure it’s above the background overlay */
         }
 
         /* Style for headings */
@@ -41,7 +58,7 @@
         .form-label {
             font-size: 0.9rem;
             margin-bottom: 5px;
-            color: #ddd;
+            color: #ffffff; /* Changed to white */
             text-transform: uppercase;
             letter-spacing: 1px;
         }

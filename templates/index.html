@@ -6,36 +6,52 @@
     <title>Welcome Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Style for the body */
         body {
-            background: linear-gradient(135deg, #1c1c1c, #3a3a3a); /* Gradient background */
+            background-image: url('https://imgs.search.brave.com/xlrwxsTY6G0dmsFWvBix8VSqTNhv3SW-MM8huu7Y65U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9nZXR3/YWxscGFwZXJzLmNv/bS93YWxscGFwZXIv/ZnVsbC81L2EvNy8x/NjU4OTUuanBn'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
             height: 100vh;
             margin: 0;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); 
+            z-index: 0;
+        }
+
+        .container {
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); 
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.1); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative; /* Above the overlay */
+            z-index: 1;
+            width: 400px;
             text-align: center;
         }
 
-        /* Container styling for padding and layout */
-        .container {
-            padding: 30px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Card-like shadow */
-            border-radius: 10px;
-            background-color: rgba(255, 255, 255, 0.1); /* Slight transparency */
-        }
-
-        /* Style for the heading */
         h1 {
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: 700;
-            color: #ff6347; /* Tomoto color */
-            text-shadow: 2px 2px 8px rgba(255, 99, 71, 0.7); /* Softer shadow */
+            color: #ff6347; 
+            text-shadow: 2px 2px 8px rgba(255, 99, 71, 0.7); 
             margin: 0;
-            transition: all 0.4s ease; /* Smooth animation */
+            transition: all 0.4s ease;
         }
 
         h1:hover {
@@ -43,17 +59,14 @@
             transform: scale(1.05);
         }
 
-        /* Style for subtitle */
         p {
             font-size: 1.4rem;
             margin-top: 20px;
             color: #e0e0e0;
         }
 
-        /* Style for the button */
         .btn {
-            background: linear-gradient(135deg, #ff7f50, #ff4500); /* Gradient button */
-            color: white;
+            background: linear-gradient(135deg, #ff7f50, #ff4500); 
             border: none;
             padding: 15px 40px;
             border-radius: 30px;
@@ -64,14 +77,12 @@
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* Hover effect for button */
         .btn:hover {
-            background: linear-gradient(135deg, #ff6347, #ff2a00); /* More vibrant on hover */
+            background: linear-gradient(135deg, #ff6347, #ff2a00); 
             box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
-            transform: translateY(-5px); /* Lift up effect */
+            transform: translateY(-5px); 
         }
 
-        /* Text animations */
         @keyframes fadeIn {
             0% {
                 opacity: 0;
