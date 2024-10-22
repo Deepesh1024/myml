@@ -60,4 +60,4 @@ def predict_datapoint():
             return render_template('home.html', error=str(e))  # Display error to the user
 
 if __name__ == '__main__':
-    app.run(port=5001)  # Run the app in debug mode
+    app.run(host = "0.0.0.0", port=5001)  # Run the app in debug mode
